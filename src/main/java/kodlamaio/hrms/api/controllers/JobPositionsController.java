@@ -22,6 +22,7 @@ public class JobPositionsController {
 		this.jobPositionService = jobPositionService;
 	}
 	
+	
 	@GetMapping("/getall")
 	public List<JobPosition> getall(){
 		return this.jobPositionService.getall();
