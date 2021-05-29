@@ -4,10 +4,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import lombok.EqualsAndHashCode;
+
 
 @Entity
 @Table(name="employees")
+@EqualsAndHashCode(callSuper = true)
+@PrimaryKeyJoinColumn(name="user_id", referencedColumnName="id")
 public class Employee extends User {
 	
 	@Column(name="department_id")
@@ -18,12 +24,6 @@ public class Employee extends User {
 	
 	@Column(name="last_name")
 	String lastName;
-	
-	@Column(name="email")
-	String email;
-	
-	@Column(name="password")
-	String password;
 	
 	@Column(name="date_of_birth")
 	Date dateOfBirth;
