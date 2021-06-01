@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Table(name="email_activation_codes")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="email_activation_codes")
 public class EmailActivationCode {
 	
 	@Id

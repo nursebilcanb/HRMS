@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Table(name="candidates")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="candidates")
 @EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name="user_id", referencedColumnName="id")
 public class Candidate extends User{

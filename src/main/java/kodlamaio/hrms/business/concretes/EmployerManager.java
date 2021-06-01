@@ -65,11 +65,6 @@ public class EmployerManager implements EmployerService{
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"İş verenler listelendi");
 	}
 
-	@Override
-	public Result addNotice() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public DataResult<Employer> getById(int id) {

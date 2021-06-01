@@ -11,7 +11,6 @@ public interface EmployerService {
 	Result verifyEmail(String email);
 	Result verifyByEmployee();
 	
-	Result addNotice();
 	
 	DataResult<List<Employer>> getAll();
 	DataResult<Employer> getById(int id);

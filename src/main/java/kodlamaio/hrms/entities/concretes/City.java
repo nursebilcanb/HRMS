@@ -1,43 +1,46 @@
 package kodlamaio.hrms.entities.concretes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @Entity
-@Table(name="employers")
+@Table(name = "cities")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-@PrimaryKeyJoinColumn(name="user_id", referencedColumnName="id")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "jobAdverts"})
-public class Employer extends User{
+public class City {
 	
-	@Column(name="company_name")
-	String companyName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
 	
-	@Column(name="web_site_name")
-	String webSiteName;
+	@Column(name = "city_name")
+	String cityName;
 	
-	@Column(name="phone_number")
-	String phone;
+	@Column(name = "is_activated")
+	Boolean isActivated;
 	
-	@Column(name="verify_by_employee")
-	Boolean verifyByEmployee = false;
+	@Column(name = "created_at")
+	LocalDate createdAt = LocalDate.now();
 	
-	@OneToMany(mappedBy = "employer")
+	@OneToMany(mappedBy = "city")
 	List<JobAdvert> jobAdverts;
-} 
+	
+
+}

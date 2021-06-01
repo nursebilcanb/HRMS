@@ -34,7 +34,7 @@ public class JobPositionManager implements JobPositionService{
 
 	@Override
 	public Result add(JobPosition jobPosition) {
-		var existBefore = getById(jobPosition.getId());
+		var existBefore = getByJobName(jobPosition.getJobName());
 				
 		if(existBefore.isSuccess()) {
 			return new ErrorResult("Bu iş pozisyonu zaten kayıtlı");
@@ -45,9 +45,9 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	@Override
-	public DataResult<JobPosition> getById(int id) {
-		var result = this.jobPositionDao.findById(id);
-		return result.isEmpty() ? new ErrorDataResult<JobPosition>("İş pozisyonu bulunamadı") : new SuccessDataResult<JobPosition>(result.get(),"Kullanıcı gönderildi");
+	public DataResult<JobPosition> getByJobName(String jobName) {
+		var result = this.jobPositionDao.findByJobName(jobName);
+		return (result == null) ? new ErrorDataResult<JobPosition>("İş pozisyonu bulunamadı") : new SuccessDataResult<JobPosition>(result,"İş pozisyonu gönderildi");
 	}
 
 
