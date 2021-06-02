@@ -55,6 +55,7 @@ public class EmployerManager implements EmployerService{
 		return new ErrorResult("Email doğrulanamadı");
 	}
 
+	//Sor burayı employee de yazdığımı kullanmak istiyorum
 	@Override
 	public Result verifyByEmployee() {
 		return new SuccessResult("Sistem tarafından onaylandı");

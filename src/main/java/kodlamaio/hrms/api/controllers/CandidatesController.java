@@ -27,6 +27,7 @@ public class CandidatesController {
 	public DataResult<List<Candidate>> getAll(){
 		return this.candidateService.getAll();
 	}
+	
 
 
 }
