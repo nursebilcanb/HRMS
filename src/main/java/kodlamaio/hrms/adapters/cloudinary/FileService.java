@@ -7,6 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import kodlamaio.hrms.core.utilities.DataResult;
 
 public interface FileService {
-	DataResult<String> upload(MultipartFile multipartFile) throws IOException;
+	DataResult<?> upload(MultipartFile multipartFile) throws IOException;
     DataResult<?> delete(int id) throws IOException;
 }

@@ -91,4 +91,12 @@ public class Background {
 	inverseJoinColumns = {@JoinColumn(name = "programming_language_id")})
 	private Set<ProgrammingLanguage> programmingLanguages =  new HashSet<>();
 	
+	
+	
+	public Background(Candidate candidate, String github, String linkedin, String coverLetter) {
+		this.candidate = candidate;
+		this.github = github;
+		this.linkedin = linkedin;
+		this.coverLetter = coverLetter;
+	}
 }

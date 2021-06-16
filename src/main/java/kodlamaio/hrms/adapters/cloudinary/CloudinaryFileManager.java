@@ -26,7 +26,7 @@ public class CloudinaryFileManager implements FileService{
 	}
 
 	@Override
-	public DataResult<String> upload(MultipartFile multipartFile) throws IOException {
+	public DataResult<?> upload(MultipartFile multipartFile) throws IOException {
 		var result = this.cloudinary.uploader().upload(multipartFile.getBytes(), ObjectUtils.emptyMap());
 		return new SuccessDataResult<>(result.get("secure_url").toString());
 	}

@@ -16,5 +16,5 @@ public interface BackgroundService {
 	DataResult<List<Background>> getByCandidateId(int candidateId);
 	
 	Result add(BackgroundAddDto backgroundAddDto);
-	Result addImage(MultipartFile multipartFile, int candidateId) throws IOException;
+	Result addImage(MultipartFile multipartFile, int backgroundId) throws IOException;
 }
