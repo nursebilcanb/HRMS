@@ -11,9 +11,9 @@ import kodlamaio.hrms.entities.dtos.JobAdvertDto;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	
-	@Query("Select new kodlamaio.hrms.entities.dtos.JobAdvertDto(id, employer.companyName, jobPosition.jobName, openPositionAmount, createdAt, applicationDeadline) from JobAdvert where active =: activityStatus")
-	List<JobAdvertDto> getAllByActivity(@Param("activityStatus") Boolean activityStatus);
+	@Query("select new kodlamaio.hrms.entities.dtos.JobAdvertDto(id, employer.companyName, jobPosition.jobName, openPositionAmount, createdAt, applicationDeadline) from JobAdvert where isActivated = :activityStatus")
+	List<JobAdvertDto> dtoGetJobAdvertsByIsActivatedIs(@Param("activityStatus") boolean activityStatus);
 	
-	@Query("Select new kodlamaio.hrms.entities.dtos.JobAdvertDto(id, employer.companyName, jobPosition.jobName, openPositionAmount, createdAt, applicationDeadline) from JobAdvert where employer.id =: employerId ")
-	List<JobAdvertDto> getAllActiveAdvertsByEmployerId(@Param("employerId") int employerId);
+	@Query("select new kodlamaio.hrms.entities.dtos.JobAdvertDto(id, employer.companyName, jobPosition.jobName, openPositionAmount, createdAt, applicationDeadline) from JobAdvert where employer.id = :employerId ")
+	List<JobAdvertDto> dtoGetAllActiveAdvertsByEmployerId(@Param("employerId") int employerId);
 }

@@ -26,7 +26,7 @@ public class EmployeeManager implements EmployeeService{
         if (!employer.isSuccess())
             return new ErrorResult("İşveren bulunamadı");	
         
-        if(employer.getData().getVerifyByEmployee()) {
+        if(employer.getData().isVerifyByEmployee()) {
         	return new ErrorResult("Bu işveren zaten onaylanmış");
         }
         

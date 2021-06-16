@@ -32,11 +32,14 @@ public class School {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
+	@Column(name = "name")
+	 String name;
+	 
 	@Column(name = "department")
 	 String department;
 	
-	@Column(name = "starting_date")
+	 @Column(name = "starting_date")
 	 LocalDate startingDate;
 	
 	@Column(name = "finish_date")

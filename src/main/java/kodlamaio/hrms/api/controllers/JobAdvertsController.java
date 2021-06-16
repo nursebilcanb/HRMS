@@ -3,6 +3,7 @@ package kodlamaio.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import kodlamaio.hrms.core.utilities.Result;
 import kodlamaio.hrms.entities.concretes.JobAdvert;
 import kodlamaio.hrms.entities.dtos.JobAdvertDto;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobAdverts")
 public class JobAdvertsController {
@@ -30,18 +32,18 @@ public class JobAdvertsController {
 	
 
 	@GetMapping("/getAllByActivity")
-	public DataResult<List<JobAdvertDto>> getAllByActivity(@RequestParam Boolean activityStatus){
-		return this.jobAdvertService.getAllByActivity(activityStatus);
+	public DataResult<List<JobAdvertDto>> getAllByActivity(@RequestParam boolean activityStatus){
+		return this.jobAdvertService.dtoGetJobAdvertsByIsActivated(activityStatus);
 	}
 
 	@GetMapping("/getAllActiveAdvertsByEmployerId")
 	public DataResult<List<JobAdvertDto>> getAllActiveAdvertsByEmployerId(@RequestParam int employerId){
-		return this.jobAdvertService.getAllActiveAdvertsByEmployerId(employerId);
+		return this.jobAdvertService.dtoGetAllActiveAdvertsByEmployerId(employerId);
 	}
 	
 	@GetMapping("/getAllActiveAdvertsByDate")
 	public 	DataResult<List<JobAdvertDto>> getAllActiveAdvertsByDate(){
-		return this.jobAdvertService.getAllActiveAdvertsByDate();
+		return this.jobAdvertService.dtoGetAllActiveAdvertsByDate();
 	}
 
 	@PostMapping("/add")

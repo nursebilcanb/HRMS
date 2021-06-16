@@ -36,7 +36,7 @@ public class Employer extends User{
 	String phone;
 	
 	@Column(name="verify_by_employee")
-	Boolean verifyByEmployee = false;
+	boolean verifyByEmployee = false;
 	
 	@OneToMany(mappedBy = "employer")
 	List<JobAdvert> jobAdverts;

@@ -8,9 +8,9 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 import kodlamaio.hrms.entities.dtos.JobAdvertDto;
 
 public interface JobAdvertService {
-	DataResult<List<JobAdvertDto>> getAllByActivity(Boolean activityStatus);
-	DataResult<List<JobAdvertDto>> getAllActiveAdvertsByDate();
-	DataResult<List<JobAdvertDto>> getAllActiveAdvertsByEmployerId(int employerId);
+	DataResult<List<JobAdvertDto>> dtoGetJobAdvertsByIsActivated(boolean status);
+	DataResult<List<JobAdvertDto>> dtoGetAllActiveAdvertsByDate();
+	DataResult<List<JobAdvertDto>> dtoGetAllActiveAdvertsByEmployerId(int employerId);
 	
 	DataResult<JobAdvert> getById(int jobAdvertId);
 	

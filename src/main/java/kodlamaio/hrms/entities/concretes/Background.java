@@ -48,7 +48,7 @@ public class Background {
 	String coverLetter;
 	
 	@Column(name = "is_activated")
-	Boolean isActivated;
+	boolean isActivated;
 	
 	@Column(name = "created_at")
 	LocalDate createdAt;

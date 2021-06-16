@@ -34,7 +34,7 @@ public class City {
 	String cityName;
 	
 	@Column(name = "is_activated")
-	Boolean isActivated;
+	boolean isActivated;
 	
 	@Column(name = "created_at")
 	LocalDate createdAt = LocalDate.now();

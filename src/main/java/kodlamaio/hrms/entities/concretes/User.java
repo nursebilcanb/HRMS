@@ -31,7 +31,7 @@ public class User {
 	LocalDate createdAt = LocalDate.now();
 	
 	@Column(name="is_activated")
-	Boolean isActivated;
+	boolean isActivated;
 	
 	@Column(name="email")
 	String email;
@@ -40,7 +40,7 @@ public class User {
 	String password;
 	
 	@Column(name="email_verification")
-	Boolean emailVerification;
+	boolean emailVerification;
 
 
 }

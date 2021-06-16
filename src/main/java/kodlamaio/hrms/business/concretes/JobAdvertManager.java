@@ -31,14 +31,14 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 
 	@Override
-	public DataResult<List<JobAdvertDto>> getAllByActivity(Boolean activityStatus) {
-		var result = this.jobAdvertDao.getAllByActivity(activityStatus);
+	public DataResult<List<JobAdvertDto>> dtoGetJobAdvertsByIsActivated(boolean activityStatus) {
+		var result = this.jobAdvertDao.dtoGetJobAdvertsByIsActivatedIs(activityStatus);
 		return result.isEmpty() ? new ErrorDataResult<List<JobAdvertDto>>("Aktif iş ilanı bulunamadı") : new SuccessDataResult<List<JobAdvertDto>>(result, "Aktif iş ilanları listelendi"); 
 	}
 
 	@Override
-	public DataResult<List<JobAdvertDto>> getAllActiveAdvertsByDate() {
-		var result = this.jobAdvertDao.getAllByActivity(true);
+	public DataResult<List<JobAdvertDto>> dtoGetAllActiveAdvertsByDate() {
+		var result = this.jobAdvertDao.dtoGetJobAdvertsByIsActivatedIs(true);
 
         var sortedResult = result.stream()
                 .sorted(Comparator.comparing(JobAdvertDto::getCreatedAt).reversed())
@@ -50,8 +50,8 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 
 	@Override
-	public DataResult<List<JobAdvertDto>> getAllActiveAdvertsByEmployerId(int employerId) {
-		var result = this.jobAdvertDao.getAllActiveAdvertsByEmployerId(employerId);
+	public DataResult<List<JobAdvertDto>> dtoGetAllActiveAdvertsByEmployerId(int employerId) {
+		var result = this.jobAdvertDao.dtoGetAllActiveAdvertsByEmployerId(employerId);
 		
 		return result.isEmpty() ? new ErrorDataResult<List<JobAdvertDto>>("Bu firmaya ait iş ilanı bulunamadı") : new SuccessDataResult<List<JobAdvertDto>>(result,"Bu firmaya ait iş ilanlari listelendi");
 	}
@@ -76,7 +76,7 @@ public class JobAdvertManager implements JobAdvertService{
 			return isExist;
 		}
 		
-		isExist.getData().setIsActivated(false);
+		isExist.getData().setActivated(false);
 		
 		var result = this.update(isExist.getData());
 		if(result == null) {

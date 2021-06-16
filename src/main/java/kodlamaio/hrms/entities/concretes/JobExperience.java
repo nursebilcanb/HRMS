@@ -49,7 +49,7 @@ public class JobExperience {
 	LocalDate createdAt = LocalDate.now();
 	
 	@Column(name = "is_activated")
-	Boolean isActivated;
+	boolean isActivated;
 	
 	@JsonIgnore
 	@ManyToOne

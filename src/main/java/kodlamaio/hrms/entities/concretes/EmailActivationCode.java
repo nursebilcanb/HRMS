@@ -32,7 +32,7 @@ public class EmailActivationCode {
 	String code;
 	
 	@Column(name="is_activated")
-	Boolean isActivated;
+	boolean isActivated;
 	
 	@Column(name="created_at")
 	LocalDate createdAt = LocalDate.now();
